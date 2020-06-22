@@ -5,22 +5,19 @@ using Xunit;
 
 namespace JpegLibrary.Tests.Decoder
 {
-    public class HuffmanSequentialDecodeTests
+    public class HuffmanProgressiveDecodeTests
     {
         public static IEnumerable<object[]> GetTestData()
         {
             string currentDir = Directory.GetCurrentDirectory();
             yield return new object[] {
-                            Path.Join(currentDir, @"Assets\baseline\cramps.jpg"),
-            };
-            yield return new object[] {
-                Path.Join(currentDir, @"Assets\huffman_sequential\testorig12.jpg"),
+                Path.Join(currentDir, @"Assets\huffman_progressive\progress.jpg")
             };
         }
 
         [Theory]
         [MemberData(nameof(GetTestData))]
-        public void TestDecoderIdentify(string path)
+        public void TestDecode(string path)
         {
             byte[] jpegBytes = File.ReadAllBytes(path);
 
