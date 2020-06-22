@@ -14,6 +14,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JpegLibrary.Tests", "tests\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JpegLibrary.Benchmarks", "tests\JpegLibrary.Benchmarks\JpegLibrary.Benchmarks.csproj", "{209ADD00-A300-4CCE-9303-70F7244FAD7A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JpegDebugDump", "apps\JpegDebugDump\JpegDebugDump.csproj", "{16199866-DEA3-42CC-AC1E-6D6C48711736}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,6 +34,10 @@ Global
 		{209ADD00-A300-4CCE-9303-70F7244FAD7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{209ADD00-A300-4CCE-9303-70F7244FAD7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{209ADD00-A300-4CCE-9303-70F7244FAD7A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16199866-DEA3-42CC-AC1E-6D6C48711736}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16199866-DEA3-42CC-AC1E-6D6C48711736}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16199866-DEA3-42CC-AC1E-6D6C48711736}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16199866-DEA3-42CC-AC1E-6D6C48711736}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
