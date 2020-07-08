@@ -7,22 +7,28 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <LangVersion>8.0</LangVersion>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-	
-	<!-- SourceLink support -->
+
+    <!-- SourceLink support -->
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
-  
+
   <PropertyGroup Condition="'$(Configuration)' == 'Release'">
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
 	<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-	<!-- Enable deterministic build -->
-    <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
-    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+
+  <!-- Enable deterministic build -->
+  <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+  <EmbedUntrackedSources>true</EmbedUntrackedSources>
   </PropertyGroup>
+
+	<ItemGroup>
+	  <SourceRoot Include="$(MSBuildThisFileDirectory)/"/>
+	</ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="$(MicrosoftSourceLinkGitHubPackageVersion)" PrivateAssets="All"/>
+	<PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="$(MicrosoftNETFrameworkReferenceAssembliesPackageVersion)" PrivateAssets="All"/>
   </ItemGroup>
 </Project>
