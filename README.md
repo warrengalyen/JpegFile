@@ -8,7 +8,7 @@ A native C# implementation of JPEG decoder and encoder.
 * .NET Core 2.0+
 * .NET Standard 2.0+
 
-## Currently Supported Features
+## Supported Features
 
 ### Decode
 * Decode Huffman-coding baseline DCT-based JPEG (SOF0)
