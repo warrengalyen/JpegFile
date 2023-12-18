@@ -38,6 +38,11 @@ namespace JpegFile
         }
 
         /// <summary>
+        /// True to generate the most optimal Huffman codes. This may takes more time than the standard method but yields better codes.
+        /// </summary>
+        public bool MostOptiomalCoding { get; set; }
+
+        /// <summary>
         /// Get the minimum size of buffer to rent from the output writer.
         /// </summary>
         protected int MinimumBufferSegmentSize => _minimumBufferSegmentSize;
@@ -262,7 +267,7 @@ namespace JpegFile
                 {
                     allocator.Allocate(frameHeader);
                     TransformBlocks(allocator);
-                    BuildHuffmanTables(frameHeader, allocator, optimal: false);
+                    BuildHuffmanTables(frameHeader, allocator, optimal: MostOptiomalCoding);
                     WriteHuffmanTables(ref writer);
                     WriteStartOfScan(ref writer);
                     WritePreparedScanData(frameHeader, allocator, ref writer);
