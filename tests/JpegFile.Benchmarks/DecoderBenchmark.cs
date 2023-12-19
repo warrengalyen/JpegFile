@@ -49,7 +49,7 @@ namespace JpegFile.Benchmarks
         }
 
         [Benchmark]
-        public void TestJpegLibrary()
+        public void TestJpegFile()
         {
             var decoder = new JpegDecoder();
             decoder.SetInput(_inputBytes);

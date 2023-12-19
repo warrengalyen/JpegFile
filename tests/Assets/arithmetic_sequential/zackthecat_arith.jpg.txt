@@ -3,7 +3,7 @@ JPEGsnoop 1.8.0a by Calvin Hass
   http://www.impulseadventure.com/photo/
   -------------------------------------
 
-  Filename: [C:\Users\wgaly\Documents\Repos\JpegLibrary\tests\Assets\arithmetic_sequential\zackthecat_arith.jpg]
+  Filename: [C:\Users\wgaly\Documents\Repos\JpegFile\tests\Assets\arithmetic_sequential\zackthecat_arith.jpg]
   Filesize: [7753] Bytes
 
 Start Offset: 0x00000000

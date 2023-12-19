@@ -7,14 +7,14 @@
   <Import Project="build\dependencies.props" />
 
   <PropertyGroup>
-    <Product>JpegLibrary</Product>
+    <Product>JpegFile</Product>
     <Authors>Warren Galyen</Authors>
     <Copyright>Copyright (c) 2019-2020 Mechanika Design</Copyright>
     <PackageTags>jpeg</PackageTags>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageProjectUrl>https://github.com/warrengalyen/JpegLibrary</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/warrengalyen/JpegFile</PackageProjectUrl>
     <RepositoryType>git</RepositoryType>
-    <RepositoryUrl>https://github.com/warrengalyen/JpegLibrary.git</RepositoryUrl>
+    <RepositoryUrl>https://github.com/warrengalyen/JpegFile.git</RepositoryUrl>
 
     <AssemblyOriginatorKeyFile>$(MSBuildThisFileDirectory)build\key.snk</AssemblyOriginatorKeyFile>
     <SignAssembly>true</SignAssembly>
@@ -22,7 +22,7 @@
 
   <ItemGroup>
     <PackageReference Include="Nerdbank.GitVersioning">
-      <Version>3.1.74</Version>
+      <Version>3.3.37</Version>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
   </ItemGroup>

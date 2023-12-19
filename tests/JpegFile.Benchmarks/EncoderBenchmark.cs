@@ -74,7 +74,7 @@ namespace JpegFile.Benchmarks
         }
 
         [Benchmark]
-        public void TestJpegLibraryEncode444()
+        public void TestJpegFileEncode444()
         {
             var encoder = new JpegEncoder();
             encoder.SetQuantizationTable(JpegStandardQuantizationTable.ScaleByQuality(JpegStandardQuantizationTable.GetLuminanceTable(JpegElementPrecision.Precision8Bit, 0), 75));
@@ -105,7 +105,7 @@ namespace JpegFile.Benchmarks
         }
 
         [Benchmark]
-        public void TestJpegLibraryEncode420()
+        public void TestJpegFileEncode420()
         {
             var encoder = new JpegEncoder();
             encoder.SetQuantizationTable(JpegStandardQuantizationTable.ScaleByQuality(JpegStandardQuantizationTable.GetLuminanceTable(JpegElementPrecision.Precision8Bit, 0), 75));
@@ -136,7 +136,7 @@ namespace JpegFile.Benchmarks
         }
 
         [Benchmark]
-        public void TestJpegLibraryEncode444_NoBuffer()
+        public void TestJpegFileEncode444_NoBuffer()
         {
             var encoder = new JpegEncoder();
             encoder.SetQuantizationTable(JpegStandardQuantizationTable.ScaleByQuality(JpegStandardQuantizationTable.GetLuminanceTable(JpegElementPrecision.Precision8Bit, 0), 75));
@@ -158,7 +158,7 @@ namespace JpegFile.Benchmarks
         }
 
         [Benchmark]
-        public void TestJpegLibraryEncode420_NoBuffer()
+        public void TestJpegFileEncode420_NoBuffer()
         {
             var encoder = new JpegEncoder();
             encoder.SetQuantizationTable(JpegStandardQuantizationTable.ScaleByQuality(JpegStandardQuantizationTable.GetLuminanceTable(JpegElementPrecision.Precision8Bit, 0), 75));

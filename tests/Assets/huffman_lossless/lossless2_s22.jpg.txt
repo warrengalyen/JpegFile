@@ -3,7 +3,7 @@ JPEGsnoop 1.8.0a by Calvin Hass
   http://www.impulseadventure.com/photo/
   -------------------------------------
 
-  Filename: [C:\Users\wgaly\Documents\Repos\JpegLibrary\tests\Assets\huffman_lossless\lossless2_s22.jpg]
+  Filename: [C:\Users\wgaly\Documents\Repos\JpegFile\tests\Assets\huffman_lossless\lossless2_s22.jpg]
   Filesize: [14222] Bytes
 
 Start Offset: 0x00000000

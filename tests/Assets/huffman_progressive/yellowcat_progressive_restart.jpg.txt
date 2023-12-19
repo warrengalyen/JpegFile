@@ -3,7 +3,7 @@ JPEGsnoop 1.8.0a by Calvin Hass
   http://www.impulseadventure.com/photo/
   -------------------------------------
 
-  Filename: [C:\Users\wgaly\Documents\Repos\JpegLibrary\tests\Assets\huffman_progressive\yellowcat_progressive_restart.jpg]
+  Filename: [C:\Users\wgaly\Documents\Repos\JpegFile\tests\Assets\huffman_progressive\yellowcat_progressive_restart.jpg]
   Filesize: [45703] Bytes
 
 Start Offset: 0x00000000
