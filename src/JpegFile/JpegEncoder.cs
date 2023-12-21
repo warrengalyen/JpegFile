@@ -40,7 +40,7 @@ namespace JpegFile
         /// <summary>
         /// True to generate the most optimal Huffman codes. This may takes more time than the standard method but yields better codes.
         /// </summary>
-        public bool MostOptiomalCoding { get; set; }
+        public bool MostOptimalCoding { get; set; }
 
         /// <summary>
         /// Get the minimum size of buffer to rent from the output writer.
@@ -267,7 +267,7 @@ namespace JpegFile
                 {
                     allocator.Allocate(frameHeader);
                     TransformBlocks(allocator);
-                    BuildHuffmanTables(frameHeader, allocator, optimal: MostOptiomalCoding);
+                    BuildHuffmanTables(frameHeader, allocator, optimal: MostOptimalCoding);
                     WriteHuffmanTables(ref writer);
                     WriteStartOfScan(ref writer);
                     WritePreparedScanData(frameHeader, allocator, ref writer);
@@ -438,9 +438,12 @@ namespace JpegFile
             int mcusPerColumn = (inputReader.Height + 8 * maxVerticalSampling - 1) / (8 * maxVerticalSampling);
             const int levelShift = 1 << (8 - 1);
 
-            JpegBlock8x8F inputFBuffer = default;
-            JpegBlock8x8F outputFBuffer = default;
-            JpegBlock8x8F tempFBuffer = default;
+            JpegBlock8x8F inputFBuffer;
+            JpegBlock8x8F outputFBuffer;
+            JpegBlock8x8F tempFBuffer;
+            Unsafe.SkipInit(out inputFBuffer);
+            Unsafe.SkipInit(out outputFBuffer);
+            Unsafe.SkipInit(out tempFBuffer);
 
             for (int rowMcu = 0; rowMcu < mcusPerColumn; rowMcu++)
             {
@@ -690,9 +693,12 @@ namespace JpegFile
 
             const int levelShift = 1 << (8 - 1);
 
-            JpegBlock8x8F inputFBuffer = default;
-            JpegBlock8x8F outputFBuffer = default;
-            JpegBlock8x8F tempFBuffer = default;
+            JpegBlock8x8F inputFBuffer;
+            JpegBlock8x8F outputFBuffer;
+            JpegBlock8x8F tempFBuffer;
+            Unsafe.SkipInit(out inputFBuffer);
+            Unsafe.SkipInit(out outputFBuffer);
+            Unsafe.SkipInit(out tempFBuffer);
 
             JpegBlock8x8 inputBuffer;
 

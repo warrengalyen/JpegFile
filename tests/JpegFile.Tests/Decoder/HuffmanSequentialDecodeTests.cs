@@ -23,7 +23,7 @@ namespace JpegFile.Tests.Decoder
 
         [Theory]
         [MemberData(nameof(GetTestData))]
-        public void TestDecoderIdentify(string path)
+        public void TestDecode(string path)
         {
             byte[] jpegBytes = File.ReadAllBytes(path);
 
