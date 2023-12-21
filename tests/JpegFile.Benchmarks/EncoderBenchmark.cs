@@ -1,6 +1,7 @@
 ﻿using BenchmarkDotNet.Attributes;
 using JpegFile.ColorConverters;
 using SixLabors.ImageSharp;
+using SixLabors.ImageSharp.Formats.Jpeg;
 using SixLabors.ImageSharp.PixelFormats;
 using SixLabors.ImageSharp.Processing;
 using System;
@@ -62,7 +63,7 @@ namespace JpegFile.Benchmarks
         {
             using var image = Image.WrapMemory<Rgba32>(_rgba, _width, _height);
             var stream = new NullWriteStream();
-            image.SaveAsJpeg(stream, new SixLabors.ImageSharp.Formats.Jpeg.JpegEncoder { Quality = 75, Subsample = SixLabors.ImageSharp.Formats.Jpeg.JpegSubsample.Ratio444 });
+            image.SaveAsJpeg(stream, new SixLabors.ImageSharp.Formats.Jpeg.JpegEncoder { Quality = 75, ColorType = JpegEncodingColor.YCbCrRatio444 });
         }
 
         [Benchmark]
@@ -70,7 +71,8 @@ namespace JpegFile.Benchmarks
         {
             using var image = Image.WrapMemory<Rgba32>(_rgba, _width, _height);
             var stream = new NullWriteStream();
-            image.SaveAsJpeg(stream, new SixLabors.ImageSharp.Formats.Jpeg.JpegEncoder { Quality = 75, Subsample = SixLabors.ImageSharp.Formats.Jpeg.JpegSubsample.Ratio420 });
+
+            image.SaveAsJpeg(stream, new SixLabors.ImageSharp.Formats.Jpeg.JpegEncoder { Quality = 75, ColorType = JpegEncodingColor.YCbCrRatio420 });
         }
 
         [Benchmark]

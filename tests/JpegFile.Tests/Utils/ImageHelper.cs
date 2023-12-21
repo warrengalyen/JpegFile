@@ -1,5 +1,4 @@
 ﻿using SixLabors.ImageSharp;
-using SixLabors.ImageSharp.Advanced;
 using SixLabors.ImageSharp.PixelFormats;
 using System;
 using System.IO;
@@ -25,11 +24,22 @@ namespace JpegFile.Tests
             Rgba32[] highPixels = new Rgba32[width * height];
             Rgba32[] lowDiffPixels = new Rgba32[width * height];
 
-            for (int i = 0; i < height; i++)
+            high.ProcessPixelRows(highAccessor =>
             {
-                high.GetPixelRowSpan(i).CopyTo(highPixels.AsSpan(width * i, width));
-                lowDiff.GetPixelRowSpan(i).CopyTo(lowDiffPixels.AsSpan(width * i, width));
-            }
+                for (int i = 0; i < height; i++)
+                {
+                    highAccessor.GetRowSpan(i).CopyTo(highPixels.AsSpan(width * i, width));
+                }
+            });
+
+            lowDiff.ProcessPixelRows(lowDiffAccessor =>
+            {
+                for (int i = 0; i < height; i++)
+                {
+                    lowDiffAccessor.GetRowSpan(i).CopyTo(lowDiffPixels.AsSpan(width * i, width));
+                }
+            });
+
 
             ushort[] buffer = new ushort[width * height * 4];
 

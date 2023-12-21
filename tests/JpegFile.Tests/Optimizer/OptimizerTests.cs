@@ -1,6 +1,6 @@
-﻿using SixLabors.ImageSharp;
+﻿using Codeuctivity.ImageSharpCompare;
+using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.PixelFormats;
-using System;
 using System.Buffers;
 using System.Collections.Generic;
 using System.IO;
@@ -51,11 +51,7 @@ namespace JpegFile.Tests.Optimizer
             Assert.Equal(image1.Width, image2.Width);
             Assert.Equal(image1.Height, image2.Height);
 
-            int height = image1.Height;
-            for (int i = 0; i < height; i++)
-            {
-                Assert.True(image1.GetPixelRowSpan(i).SequenceEqual(image2.GetPixelRowSpan(i)));
-            }
+            Assert.True(ImageSharpCompare.ImagesAreEqual(image1, image2));
         }
     }
 }

@@ -28,10 +28,14 @@ namespace JpegEncode
 
             // Convert RGB to YCbCr
             byte[] ycbcr = new byte[image.Width * image.Height * 3];
-            for (int i = 0; i < image.Height; i++)
+
+            image.ProcessPixelRows(pixelAccessor =>
             {
-                JpegRgbToYCbCrConverter.Shared.ConvertRgb24ToYCbCr8(MemoryMarshal.AsBytes(image.GetPixelRowSpan(i)), ycbcr.AsSpan(3 * image.Width * i, 3 * image.Width), image.Width);
-            }
+                for (int i = 0; i < image.Height; i++)
+                {
+                    JpegRgbToYCbCrConverter.Shared.ConvertRgb24ToYCbCr8(MemoryMarshal.AsBytes(pixelAccessor.GetRowSpan(i)), ycbcr.AsSpan(3 * image.Width * i, 3 * image.Width), image.Width);
+                }
+            });
 
             var encoder = new JpegEncoder();
             encoder.SetQuantizationTable(JpegStandardQuantizationTable.ScaleByQuality(JpegStandardQuantizationTable.GetLuminanceTable(JpegElementPrecision.Precision8Bit, 0), quality));

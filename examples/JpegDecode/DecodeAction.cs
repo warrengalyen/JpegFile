@@ -65,12 +65,14 @@ namespace JpegDecode
             }
 
             using var image = new Image<Rgb24>(width, height);
-
-            // Convert YCbCr to RGB
-            for (int i = 0; i < height; i++)
+            image.ProcessPixelRows(pixelAccessor =>
             {
-                JpegYCbCrToRgbConverter.Shared.ConvertYCbCr8ToRgb24(ycbcr.AsSpan(i * width * 3, width * 3), MemoryMarshal.AsBytes(image.GetPixelRowSpan(i)), width);
-            }
+                // Convert YCbCr to RGB
+                for (int i = 0; i < pixelAccessor.Height; i++)
+                {
+                    JpegYCbCrToRgbConverter.Shared.ConvertYCbCr8ToRgb24(ycbcr.AsSpan(i * pixelAccessor.Width * 3, pixelAccessor.Width * 3), MemoryMarshal.AsBytes(pixelAccessor.GetRowSpan(i)), pixelAccessor.Width);
+                }
+            });
 
             image.Save(output);
 
