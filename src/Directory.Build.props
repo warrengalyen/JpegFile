@@ -19,9 +19,13 @@
 	<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 	<NBGV_EmitThisAssemblyClass>false</NBGV_EmitThisAssemblyClass>
 
-  <!-- Enable deterministic build -->
-  <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
-  <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <!-- Enable deterministic build -->
+    <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+  
+    <!-- Package validation -->
+    <EnablePackageValidation>true</EnablePackageValidation>
+    <PackageValidationBaselineVersion>$(PreviouslyPublishedPackageVersion)</PackageValidationBaselineVersion>
   </PropertyGroup>
 
 	<ItemGroup>
