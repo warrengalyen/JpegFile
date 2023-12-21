@@ -4,9 +4,7 @@ A native C# library for loading, saving and optimizing JPEG files.
 
 ## Supported Runtimes
 
-* .NET Framework 4.5+
-* .NET Core 2.0+
-* .NET Standard 2.0+
+* .NET Framework 6.0+
 
 ## Supported Features
 
