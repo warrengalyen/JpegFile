@@ -62,7 +62,7 @@ namespace JpegFile
                 _huffmanTables = optimizeCoding ? _huffmanTables.DeepClone() : _huffmanTables
             };
             List<JpegHuffmanEncodingComponent>? components = _encodeComponents;
-            if (!(components is null))
+            if (components is not null)
             {
                 foreach (JpegHuffmanEncodingComponent item in components)
                 {
@@ -264,7 +264,7 @@ namespace JpegFile
             JpegBlockAllocator? allocator = optimizeCoding ? new JpegBlockAllocator(MemoryPool) : null;
             try
             {
-                if (!(allocator is null))
+                if (allocator is not null)
                 {
                     allocator.Allocate(frameHeader);
                     TransformBlocks(allocator);
@@ -556,7 +556,7 @@ namespace JpegFile
             int blockValue = blockRef;
             int t = blockValue - component.DcPredictor;
             component.DcPredictor = blockValue;
-            if (!(component.DcTableBuilder is null))
+            if (component.DcTableBuilder is not null)
             {
                 GatherRunLengthCodeStatistics(component.DcTableBuilder, 0, t);
             }
@@ -754,8 +754,7 @@ namespace JpegFile
 
         private static void ReadBlockWithSubsample(JpegBlockInputReader inputReader, ref short blockRef, int componentIndex, int x, int y, int horizontalSubsampling, int verticalSubsampling)
         {
-            JpegBlock8x8 temp;
-            Unsafe.SkipInit(out temp);
+            Unsafe.SkipInit(out JpegBlock8x8 temp);
 
             ref short tempRef = ref Unsafe.As<JpegBlock8x8, short>(ref temp);
 
@@ -829,8 +828,8 @@ namespace JpegFile
         {
             ref short blockRef = ref Unsafe.As<JpegBlock8x8, short>(ref block);
 
-            Debug.Assert(!(component.DcTable is null));
-            Debug.Assert(!(component.AcTable is null));
+            Debug.Assert(component.DcTable is not null);
+            Debug.Assert(component.AcTable is not null);
 
             // DC
             int blockValue = blockRef;

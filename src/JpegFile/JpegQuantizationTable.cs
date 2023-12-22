@@ -2,6 +2,7 @@
 
 using System;
 using System.Buffers;
+using System.Runtime.CompilerServices;
 
 namespace JpegFile
 {
@@ -121,6 +122,7 @@ namespace JpegFile
         /// <param name="quantizationTable">The quantization table parsed.</param>
         /// <param name="bytesConsumed">The count of bytes consumed by the parser.</param>
         /// <returns>True is the scan component is successfully parsed.</returns>
+        [SkipLocalsInit]
         public static bool TryParse(byte precision, byte identifier, ReadOnlySequence<byte> buffer, out JpegQuantizationTable quantizationTable, ref int bytesConsumed)
         {
             if (buffer.IsSingleSegment)

@@ -72,7 +72,7 @@ namespace JpegFile
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public Entry Lookup(int code16bit)
         {
-            Debug.Assert(!(_lookaheadTable is null));
+            Debug.Assert(_lookaheadTable is not null);
 
             int high8 = code16bit >> 8;
             Entry entry = _lookaheadTable![high8];
@@ -87,9 +87,9 @@ namespace JpegFile
         [MethodImpl(MethodImplOptions.NoInlining)]
         private Entry LookupSlow(int code16bit)
         {
-            Debug.Assert(!(_maxCode is null));
-            Debug.Assert(!(_values is null));
-            Debug.Assert(!(_valOffset is null));
+            Debug.Assert(_maxCode is not null);
+            Debug.Assert(_values is not null);
+            Debug.Assert(_valOffset is not null);
 
             ushort[] maxCode = _maxCode!;
 
@@ -177,6 +177,7 @@ namespace JpegFile
         /// <param name="huffmanTable">The Huffman table parsed.</param>
         /// <param name="bytesConsumed">The count of bytes consumed by the parser.</param>
         /// <returns>True is the Huffman table is successfully parsed.</returns>
+        [SkipLocalsInit]
         public static bool TryParse(byte tableClass, byte identifier, ReadOnlySequence<byte> buffer, [NotNullWhen(true)] out JpegHuffmanDecodingTable? huffmanTable, ref int bytesConsumed)
         {
             if (buffer.IsSingleSegment)
@@ -244,6 +245,7 @@ namespace JpegFile
         /// <param name="huffmanTable">The Huffman table parsed.</param>
         /// <param name="bytesConsumed">The count of bytes consumed by the parser.</param>
         /// <returns>True is the Huffman table is successfully parsed.</returns>
+        [SkipLocalsInit]
         public static bool TryParse(byte tableClass, byte identifier, ReadOnlySpan<byte> buffer, [NotNullWhen(true)] out JpegHuffmanDecodingTable? huffmanTable, ref int bytesConsumed)
         {
             if (buffer.Length < 16)
@@ -375,7 +377,7 @@ namespace JpegFile
 
         private void FillByteLookupTable(int code, byte codeSize, byte value)
         {
-            Debug.Assert(!(_lookaheadTable is null));
+            Debug.Assert(_lookaheadTable is not null);
             Debug.Assert(codeSize <= 8);
 
             Entry[] table = _lookaheadTable!;

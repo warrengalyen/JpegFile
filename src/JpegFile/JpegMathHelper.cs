@@ -9,14 +9,6 @@ namespace JpegFile
 {
     internal static class JpegMathHelper
     {
-        private static ReadOnlySpan<byte> Log2DeBruijn => new byte[32]
-        {
-            00, 09, 01, 10, 13, 21, 02, 29,
-            11, 14, 16, 18, 22, 25, 03, 30,
-            08, 12, 20, 28, 15, 17, 24, 07,
-            19, 27, 23, 06, 26, 05, 04, 31
-        };
-
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int RoundToInt32(float value)
         {
@@ -68,6 +60,14 @@ namespace JpegFile
 #endif
         }
 
+#if NO_BIT_OPERATIONS
+        private static ReadOnlySpan<byte> Log2DeBruijn => new byte[32]
+        {
+            00, 09, 01, 10, 13, 21, 02, 29,
+            11, 14, 16, 18, 22, 25, 03, 30,
+            08, 12, 20, 28, 15, 17, 24, 07,
+            19, 27, 23, 06, 26, 05, 04, 31
+        };
         /// <summary>
         /// Returns the integer (floor) log of the specified value, base 2.
         /// Note that by convention, input value 0 returns 0 since Log(0) is undefined.
@@ -93,5 +93,6 @@ namespace JpegFile
                 // uint|long -> IntPtr cast on 32-bit platforms does expensive overflow checks not needed here
                 (IntPtr)(int)((value * 0x07C4ACDDu) >> 27));
         }
+#endif
     }
 }

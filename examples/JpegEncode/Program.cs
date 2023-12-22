@@ -39,24 +39,23 @@ namespace JpegEncode
             command.Handler = CommandHandler.Create<FileInfo, FileInfo, int, bool>(EncodeAction.Encode);
 
             static Option Output() =>
-                new Option(new[] { "--output", "--out", "-o" }, "Output JPEG file path.")
+                new Option<string>(new[] { "--output", "--out", "-o" }, "Output JPEG file path.")
                 {
+                    Argument = new Argument<string> { Arity = ArgumentArity.ExactlyOne },
                     Name = "output",
-                    Argument = new Argument<FileInfo>() { Arity = ArgumentArity.ExactlyOne }
                 };
 
             static Option Quality() =>
-                new Option(new[] { "--quality" }, "Output JPEG quality. [75]")
+                new Option<int>(new[] { "--quality" }, () => 75, "Output JPEG quality.")
                 {
+                    Argument = new Argument<string> { Arity = ArgumentArity.ExactlyOne },
                     Name = "quality",
-                    Argument = new Argument<int>(() => 75) { Arity = ArgumentArity.ExactlyOne }
                 };
 
             static Option OptimizeCoding() =>
-                new Option(new[] { "--optimize-coding" }, "Output JPEG quality.")
+                new Option<bool>(new[] { "--optimize-coding" }, "Output JPEG quality.")
                 {
                     Name = "optimizeCoding",
-                    Argument = new Argument<bool>()
                 };
         }
     }

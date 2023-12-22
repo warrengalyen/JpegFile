@@ -81,6 +81,7 @@ namespace JpegFile
             0xf9, 0xfa
         };
 
+        [SkipLocalsInit]
         private static JpegHuffmanCanonicalCode[] BuildCanonicalCode(ReadOnlySpan<byte> codeLengths, ReadOnlySpan<byte> codeValues)
         {
             int codeCount = codeValues.Length;
