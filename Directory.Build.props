@@ -9,7 +9,7 @@
   <PropertyGroup>
     <Product>JpegFile</Product>
     <Authors>Warren Galyen</Authors>
-    <Copyright>Copyright (c) 2019-2020 Mechanika Design</Copyright>
+    <Copyright>Copyright (c) 2019-2023 Mechanika Design</Copyright>
     <PackageTags>jpeg</PackageTags>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/warrengalyen/JpegFile</PackageProjectUrl>
